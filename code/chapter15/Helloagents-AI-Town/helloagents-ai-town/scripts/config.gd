@@ -2,17 +2,19 @@
 extends Node
 
 # ==================== API配置 ====================
-const API_BASE_URL = "http://localhost:8000"
+const API_BASE_URL = "http://localhost:8777"
 const API_CHAT = API_BASE_URL + "/chat"
 const API_NPCS = API_BASE_URL + "/npcs"
 const API_NPC_STATUS = API_BASE_URL + "/npcs/status"
 
 # ==================== NPC配置 ====================
-const NPC_NAMES = ["张三", "李四", "王五"]
+const NPC_NAMES = ["程文", "浮夸", "小萌", "大奔", "小智"]
 const NPC_TITLES = {
-	"张三": "Python工程师",
-	"李四": "产品经理",
-	"王五": "UI设计师"
+	"程文": "Python工程师",
+	"浮夸": "产品经理",
+	"小萌": "UI设计师",
+	"大奔": "前端工程师",
+	"小智": "测试工程师"
 }
 
 # ==================== 游戏配置 ====================

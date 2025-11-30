@@ -19,7 +19,7 @@ from logger import (
 
 # NPC角色配置
 NPC_ROLES = {
-    "张三": {
+    "程文": {
         "title": "Python工程师",
         "location": "工位区",
         "activity": "写代码",
@@ -28,7 +28,7 @@ NPC_ROLES = {
         "style": "简洁专业,喜欢用技术术语,偶尔吐槽bug",
         "hobbies": "看技术博客、刷LeetCode、研究新框架"
     },
-    "李四": {
+    "浮夸": {
         "title": "产品经理",
         "location": "会议室",
         "activity": "整理需求",
@@ -37,7 +37,7 @@ NPC_ROLES = {
         "style": "友好热情,善于引导对话,喜欢用比喻",
         "hobbies": "看产品分析、研究竞品、思考用户需求"
     },
-    "王五": {
+    "小萌": {
         "title": "UI设计师",
         "location": "休息区",
         "activity": "喝咖啡",
@@ -45,6 +45,24 @@ NPC_ROLES = {
         "expertise": "界面设计、交互设计、视觉呈现、用户体验",
         "style": "优雅简洁,喜欢用艺术化的表达,追求完美",
         "hobbies": "看设计作品、逛Dribbble、品咖啡"
+    },
+    "大奔": {
+        "title": "前端工程师",
+        "location": "工位区",
+        "activity": "写前端代码",
+        "personality": "开朗幽默,喜欢分享技术干货",
+        "expertise": "前端开发、用户界面设计、交互设计",
+        "style": "简洁明了,注重用户体验",
+        "hobbies": "看技术博客、参加技术分享会"
+    },
+    "小智": {
+        "title": "测试工程师",
+        "location": "实验室",
+        "activity": "测试系统",
+        "personality": "严谨细致,喜欢找bug",
+        "expertise": "软件测试、质量保证、自动化测试",
+        "style": "专业严谨,喜欢用数据说话",
+        "hobbies": "玩解谜游戏、研究测试工具"
     }
 }
 

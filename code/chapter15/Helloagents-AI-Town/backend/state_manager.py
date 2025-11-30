@@ -14,7 +14,7 @@ class NPCStateManager:
     3. 提供状态查询接口
     """
     
-    def __init__(self, update_interval: int = 30):
+    def __init__(self, update_interval: int = 500):
         """初始化状态管理器
         
         Args:
@@ -125,7 +125,7 @@ class NPCStateManager:
 # 全局单例
 _state_manager = None
 
-def get_state_manager(update_interval: int = 30) -> NPCStateManager:
+def get_state_manager(update_interval: int = 500) -> NPCStateManager:
     """获取状态管理器单例"""
     global _state_manager
     if _state_manager is None:

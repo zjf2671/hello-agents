@@ -7,13 +7,17 @@ visible = false
 script = ExtResource("1_dwk8m")
 
 [node name="Panel" type="Panel" parent="."]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -218.0
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 820.0
+offset_bottom = 360.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
 [node name="NPCName" type="Label" parent="Panel"]
 layout_mode = 0
@@ -37,8 +41,8 @@ text = "职位"
 layout_mode = 0
 offset_left = 20.0
 offset_top = 70.0
-offset_right = 1260.0
-offset_bottom = 170.0
+offset_right = 780.0
+offset_bottom = 270.0
 bbcode_enabled = true
 scroll_following = true
 scroll_following_visible_characters = true
@@ -46,24 +50,24 @@ scroll_following_visible_characters = true
 [node name="PlayerInput" type="LineEdit" parent="Panel"]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 180.0
-offset_right = 1020.0
-offset_bottom = 220.0
+offset_top = 280.0
+offset_right = 640.0
+offset_bottom = 320.0
 placeholder_text = "输入消息..."
 clear_button_enabled = true
 
 [node name="SendButton" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 1030.0
-offset_top = 180.0
-offset_right = 1130.0
-offset_bottom = 220.0
+offset_left = 650.0
+offset_top = 280.0
+offset_right = 730.0
+offset_bottom = 320.0
 text = "发送"
 
 [node name="CloseButton" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 1140.0
-offset_top = 180.0
-offset_right = 1240.0
-offset_bottom = 220.0
+offset_left = 740.0
+offset_top = 280.0
+offset_right = 780.0
+offset_bottom = 320.0
 text = "关闭"

@@ -5,6 +5,8 @@ extends Node2D
 @onready var npc_zhang: Node2D = $NPCs/NPC_Zhang
 @onready var npc_li: Node2D = $NPCs/NPC_Li
 @onready var npc_wang: Node2D = $NPCs/NPC_Wang
+@onready var npc_da_ben: Node2D = $NPCs/NPC_DaBen
+@onready var npc_xiao_zhi: Node2D = $NPCs/NPC_XiaoZhi
 
 # API客户端
 var api_client: Node = null
@@ -51,11 +53,15 @@ func update_npc_dialogue(npc_name: String, dialogue: String):
 func get_npc_node(npc_name: String) -> Node2D:
 	"""根据名字获取NPC节点"""
 	match npc_name:
-		"张三":
+		"程文":
 			return npc_zhang
-		"李四":
+		"浮夸":
 			return npc_li
-		"王五":
+		"小萌":
 			return npc_wang
+		"大奔":
+			return npc_da_ben
+		"小智":
+			return npc_xiao_zhi
 		_:
 			return null

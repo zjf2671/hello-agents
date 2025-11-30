@@ -2,7 +2,7 @@
 extends CharacterBody2D  # ⭐ 改为CharacterBody2D
 
 # NPC信息
-@export var npc_name: String = "张三"
+@export var npc_name: String = "程文"
 @export var npc_title: String = "Python工程师"
 
 # NPC外观配置

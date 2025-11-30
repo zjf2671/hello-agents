@@ -119,6 +119,10 @@ func update_animation(direction: Vector2):
 			animated_sprite.play("idle")
 
 func _input(event: InputEvent):
+	# 如果正在交互中，不处理任何输入按键（除了ESC）
+	if is_interacting:
+		return
+
 	# 按E键与NPC交互
 	# 检查E键 (KEY_E = 69)
 	if event is InputEventKey:

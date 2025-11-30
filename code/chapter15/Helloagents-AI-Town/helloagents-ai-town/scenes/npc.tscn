@@ -313,7 +313,7 @@ offset_top = -58.0
 offset_right = 20.0
 offset_bottom = -35.0
 theme_override_colors/font_color = Color(1, 1, 0.3764706, 1)
-text = "张三"
+text = "程文"
 horizontal_alignment = 1
 
 [node name="DialogueLabel" type="Label" parent="."]
