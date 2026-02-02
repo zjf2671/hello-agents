@@ -6,6 +6,11 @@
   <img src="./docs/images/hello-agents.png" alt="alt text" width="100%">
   <h1>Hello-Agents</h1>
   <h3>🤖 《从零开始构建智能体》</h3>
+  <div align="center">
+  <a href="https://trendshift.io/repositories/15520" target="_blank">
+    <img src="https://trendshift.io/api/badge/repositories/15520" alt="datawhalechina%2Fhello-agents | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/>
+  </a>
+  </div>
   <p><em>从基础理论到实际应用，全面掌握智能体系统的设计与实现</em></p>
   <img src="https://img.shields.io/github/stars/datawhalechina/Hello-Agents?style=flat&logo=github" alt="GitHub stars"/>
   <img src="https://img.shields.io/github/forks/datawhalechina/Hello-Agents?style=flat&logo=github" alt="GitHub forks"/>
@@ -74,13 +79,17 @@
 
 &emsp;&emsp;欢迎大家将在学习 Hello-Agents 或 Agent 相关技术中的独到见解、实践总结，以 PR 的形式贡献到社区精选。如果是独立于正文的内容，也可以投稿至 Extra-Chapter！<strong>期待你的第一次贡献！</strong>
 
-| 社区精选                                                                                                                                      | 内容总结                 |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| [01-Agent面试题总结](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra01-面试问题总结.md)                          | Agent 岗位相关面试问题   |
-| [01-Agent面试题答案](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra01-参考答案.md)                              | 相关面试问题答案         |
-| [02-上下文工程内容补充](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra02-上下文工程补充知识.md)                 | 上下文工程内容扩展       |
-| [03-Dify智能体创建保姆级教程](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra03-Dify智能体创建保姆级操作流程.md) | Dify智能体创建保姆级教程 |
-| [04-Hello-agents课程常见问题](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra04-DatawhaleFAQ.md)                 | Datawhale课程常见问题    |
+| 社区精选                                                                                                                                      | 内容总结                  |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| [00-共创毕业设计](https://github.com/datawhalechina/hello-agents/blob/main/Co-creation-projects)                                             | 社区共创毕业设计项目      |
+| [01-Agent面试题总结](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra01-面试问题总结.md)                          | Agent 岗位相关面试问题    |
+| [01-Agent面试题答案](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra01-参考答案.md)                              | 相关面试问题答案          |
+| [02-上下文工程内容补充](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra02-上下文工程补充知识.md)                 | 上下文工程内容扩展        |
+| [03-Dify智能体创建保姆级教程](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra03-Dify智能体创建保姆级操作流程.md) | Dify智能体创建保姆级教程  |
+| [04-Hello-agents课程常见问题](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra04-DatawhaleFAQ.md)                 | Datawhale课程常见问题     |
+| [05-Agent Skills与MCP对比解读](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra05-AgentSkills解读.md)             | Agent Skills与MCP技术对比 |
+| [06-GUI Agent科普与实战](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra06-GUIAgent科普与实战.md)                | GUI Agent科普与多场景实战 |
+| [07-环境配置](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra07-环境配置.md)                | 环境配置 |
 
 ### PDF 版本下载
 
@@ -113,9 +122,8 @@
 &emsp;&emsp;现在，准备好进入智能体的奇妙世界了吗？让我们即刻启程！
 
 ## 下一步规划
-- []英文版教程
-- []双语视频课程[英文+中文]（将会更加细致，实践课带领大家从设计思路到实施，授人以鱼也授人以渔）
-- []共创第16章（打造各类Agent应用,更打造Agent生态）
+
+双语视频课程[英文+中文]（将会更加细致，实践课带领大家从设计思路到实施，授人以鱼也授人以渔）
   
 ## 🤝 如何贡献
 
@@ -151,10 +159,17 @@
   </a>
 </div>
 
+## 读者交流群
+
+<div align='center'>
+    <img src="./读者群二维码.png" alt="读者群二维码" width="30%">
+    <p>扫描二维码加入读者交流群，与更多学习者交流讨论</p>
+</div>
+
 ## Star History
 
 <div align='center'>
-    <img src="./docs/images/star-history-20251130.png" alt="Datawhale" width="90%">
+    <img src="./docs/images/star-history-2026113.png" alt="Datawhale" width="90%">
 </div>
 
 <div align="center">

@@ -259,8 +259,9 @@ response_stream = llm.think(messages)
 # 打印响应
 print("ModelScope Response:")
 for chunk in response_stream:
-    # chunk 已经是文本片段，可以直接使用
-    print(chunk, end="", flush=True)
+    # chunk在my_llm库中已经打印过一遍，这里只需要pass即可
+    # print(chunk, end="", flush=True)
+    pass
 ```
 
 通过以上步骤，我们就在不修改 `hello-agents` 库源码的前提下，成功为其扩展了新的功能。这种方法不仅保证了代码的整洁和可维护性，也使得未来升级 `hello-agents` 库时，我们的定制化功能不会丢失。
@@ -1287,7 +1288,7 @@ _extract_message_content:从OpenAI的响应中提取文本
 _parse_function_call_arguments:解析模型返回的JSON字符串参数
 _convert_parameter_types:转换参数类型
 
-这些功能可以使其具备原生的OpenAI Functioncall的能力，对比使用prompt约束的方式，具备更强的鲁棒性。
+这些功能可以使其具备原生的OpenAI Function Calling的能力，对比使用prompt约束的方式，具备更强的鲁棒性。
 ```python
 def _invoke_with_tools(self, messages: list[dict[str, Any]], tools: list[dict[str, Any]], tool_choice: Union[str, dict], **kwargs):
         """调用底层OpenAI客户端执行函数调用"""

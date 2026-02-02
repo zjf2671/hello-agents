@@ -6,6 +6,11 @@
   <img src="./docs/images/hello-agents.png" alt="alt text" width="100%">
   <h1>Hello-Agents</h1>
   <h3>🤖 "Building Agent Systems from Scratch"</h3>
+  <div align="center">
+  <a href="https://trendshift.io/repositories/15520" target="_blank">
+    <img src="https://trendshift.io/api/badge/repositories/15520" alt="datawhalechina%2Fhello-agents | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/>
+  </a>
+  </div>
   <p><em>From foundational theory to practical applications, master the design and implementation of agent systems</em></p>
   <img src="https://img.shields.io/github/stars/datawhalechina/Hello-Agents?style=flat&logo=github" alt="GitHub stars"/>
   <img src="https://img.shields.io/github/forks/datawhalechina/Hello-Agents?style=flat&logo=github" alt="GitHub forks"/>
@@ -76,11 +81,15 @@ If you wish to read locally or contribute content, please refer to the learning 
 
 | Community Selection                                                                                                                                            | Content Summary                            |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| [00-Co-creation Capstone Projects](https://github.com/datawhalechina/hello-agents/blob/main/Co-creation-projects)                                             | Community co-creation capstone projects    |
 | [01-Agent Interview Questions Summary](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra01-面试问题总结.md)                         | Agent position-related interview questions |
 | [01-Agent Interview Answers](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra01-参考答案.md)                                       | Answers to related interview questions     |
 | [02-Context Engineering Content Supplement](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra02-上下文工程补充知识.md)              | Context engineering content extension      |
 | [03-Dify Agent Creation Step-by-Step Tutorial](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra03-Dify智能体创建保姆级操作流程.md) | Dify Agent Creation Step-by-Step Tutorial  |
 | [04-Hello-agents Course Common Questions](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra04-DatawhaleFAQ.md)                      | Datawhale Course Common Questions          |
+| [05-Agent Skills vs MCP Comparison](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra05-AgentSkills解读.md)                         | Agent Skills vs MCP Technical Comparison   |
+| [06-GUI Agent Overview and Hands-on Practice](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra06-GUIAgent科普与实战.md)            | GUI Agent concepts and practical tutorials |
+| [07-Environment Configuration](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra07-环境配置.md)            | Environment Configuration |
 
 ### PDF Version Download
 
@@ -149,7 +158,7 @@ We are an open-source community and welcome any form of contribution!
 ## Star History
 
 <div align='center'>
-    <img src="./docs/images/star-history-20251130.png" alt="Datawhale" width="90%">
+    <img src="./docs/images/star-history-2026113.png" alt="Datawhale" width="90%">
 </div>
 
 <div align="center">
