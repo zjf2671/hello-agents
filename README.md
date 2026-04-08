@@ -30,9 +30,7 @@
 ## 📚 快速开始
 
 ### 在线阅读
-**[🌐 点击这里开始在线阅读](https://datawhalechina.github.io/hello-agents/)** - 无需下载，随时随地学习
-
-**[📖 Cookbook(测试版)](https://book.heterocat.com.cn/)**
+**[🌐 国外访问](https://datawhalechina.github.io/hello-agents/)** | **[🚀 国内加速](https://hello-agents.datawhale.cc)** - 无需下载，随时随地学习
 
 ### 本地阅读
 如果您希望在本地阅读或贡献内容，请参考下方的学习指南。
@@ -90,6 +88,8 @@
 | [05-Agent Skills与MCP对比解读](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra05-AgentSkills解读.md)             | Agent Skills与MCP技术对比 |
 | [06-GUI Agent科普与实战](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra06-GUIAgent科普与实战.md)                | GUI Agent科普与多场景实战 |
 | [07-环境配置](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra07-环境配置.md)                | 环境配置 |
+| [08-如何写出好的Skill](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra08-如何写出好的Skill.md) | Skill 写作最佳实践 |
+| [09-Agent应用开发实践踩坑与经验分享](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra09-Agent应用开发实践踩坑与经验分享.md) | Code Agent 应用开发踩坑与经验总结 |
 
 ### PDF 版本下载
 
@@ -123,8 +123,10 @@
 
 ## 下一步规划
 
-双语视频课程[英文+中文]（将会更加细致，实践课带领大家从设计思路到实施，授人以鱼也授人以渔）
-  
+- 视频课程陆续放出（将会更加细致，实践课带领大家从设计思路到实施，授人以鱼也授人以渔）
+- HelloAgents框架已经更新V1.0.0版本，将会继续完善，增加更多好用，轻量化的工具和特性，兼容学习版本。
+- 感谢大家助力3W Star! 之后将会提供调查问卷，供大家填写自己需要学习的智能体训练内容。后续作品《从零开始训练智能体》，帮助每一个学习者掌握从零到一训练自定义场景智能体模型的能力。
+
 ## 🤝 如何贡献
 
 我们是一个开放的开源社区，欢迎任何形式的贡献！
@@ -138,8 +140,8 @@
 
 ### 核心贡献者
 - [陈思州-项目负责人](https://github.com/jjyaoao) (Datawhale 成员, 全文写作和校对)
-- [孙韬-项目负责人](https://github.com/fengju0213) (Datawhale 成员, 第九章内容和校对)  
-- [姜舒凡-项目负责人](https://github.com/Tsumugii24)（Datawhale 成员, 章节习题设计和校对）
+- [孙韬-联合发起者](https://github.com/fengju0213) (Datawhale 成员、CAMEL-AI, 第九章内容和校对)  
+- [姜舒凡-联合发起者](https://github.com/Tsumugii24)（Datawhale 成员, 章节习题设计和校对）
 - [黄佩林-Datawhale意向成员](https://github.com/HeteroCat) (Agent 开发工程师, 第五章内容贡献者)
 - [曾鑫民-Agent工程师](https://github.com/fancyboi999) (牛客科技, 第十四章案例开发)
 - [朱信忠-指导专家](https://xinzhongzhu.github.io/) (Datawhale首席科学家-浙江师范大学杭州人工智能研究院教授)
@@ -148,6 +150,8 @@
 - [周奥杰-DW贡献者团队](https://github.com/thunderbolt-fire) (西安交通大学, Extra02 内容贡献)
 - [张宸旭-个人开发者](https://github.com/Tasselszcx)(帝国理工学院, Extra03 内容贡献)
 - [黄宏晗-DW贡献者团队](https://github.com/XiaoMa-PM) (深圳大学, Extra04 内容贡献)
+- [王大鹏-Datawhale成员](https://github.com/ditingdapeng) (高级研发工程师, Extra08 内容贡献)
+- [尤逸晖-个人开发者](https://github.com/YYHDBL) (南京信息工程大学, Extra09 内容贡献)
 
 ### 特别感谢
 - 感谢 [@Sm1les](https://github.com/Sm1les) 对本项目的帮助与支持
@@ -159,21 +163,21 @@
   </a>
 </div>
 
+## Star History
+
+<div align='center'>
+    <img src="./docs/images/star-history-2026324.png" alt="Datawhale" width="90%">
+</div>
+
+<div align="center">
+  <p>⭐ 如果这个项目对你有帮助，请给我们一个 Star！</p>
+</div>
+
 ## 读者交流群
 
 <div align='center'>
     <img src="./读者群二维码.png" alt="读者群二维码" width="30%">
     <p>扫描二维码加入读者交流群，与更多学习者交流讨论</p>
-</div>
-
-## Star History
-
-<div align='center'>
-    <img src="./docs/images/star-history-2026113.png" alt="Datawhale" width="90%">
-</div>
-
-<div align="center">
-  <p>⭐ 如果这个项目对你有帮助，请给我们一个 Star！</p>
 </div>
 
 ## 关于 Datawhale

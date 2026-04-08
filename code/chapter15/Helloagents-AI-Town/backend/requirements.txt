@@ -12,7 +12,7 @@ pytest>=7.4.0
 httpx>=0.25.0
 
 # HelloAgents框架
-hello-agents>=0.2.4
+hello-agents>=0.2.4,<=0.2.9
 
 # 嵌入模型依赖
 sentence-transformers>=2.2.0

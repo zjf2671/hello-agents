@@ -30,9 +30,7 @@
 ## 📚 Quick Start
 
 ### Online Reading
-**[🌐 Click here to start reading online](https://datawhalechina.github.io/hello-agents/)** - No download required, learn anytime, anywhere
-
-**[📖 Cookbook (Beta)](https://book.heterocat.com.cn/)**
+**[🌐 International Access](https://datawhalechina.github.io/hello-agents/)** | **[🚀 Domestic Acceleration](https://hello-agents.datawhale.cc)** - No download required, learn anytime, anywhere
 
 ### Local Reading
 If you wish to read locally or contribute content, please refer to the learning guide below.
@@ -90,6 +88,8 @@ If you wish to read locally or contribute content, please refer to the learning 
 | [05-Agent Skills vs MCP Comparison](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra05-AgentSkills解读.md)                         | Agent Skills vs MCP Technical Comparison   |
 | [06-GUI Agent Overview and Hands-on Practice](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra06-GUIAgent科普与实战.md)            | GUI Agent concepts and practical tutorials |
 | [07-Environment Configuration](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra07-环境配置.md)            | Environment Configuration |
+| [08-How to Write Good Skills](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra08-如何写出好的Skill.md) | Skill writing best practices |
+| [09-Agent Development Pitfalls and Practical Lessons](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra09-Agent应用开发实践踩坑与经验分享.md) | Practical lessons and pitfalls from building a Code Agent |
 
 ### PDF Version Download
 
@@ -133,8 +133,8 @@ We are an open-source community and welcome any form of contribution!
 
 ### Core Contributors
 - [Chen Sizhou - Project Lead](https://github.com/jjyaoao) (Datawhale member, full text writing and proofreading)
-- [Sun Tao - Project Lead](https://github.com/fengju0213) (Datawhale member, Chapter 9 content and proofreading)
-- [Jiang Shufan - Project Lead](https://github.com/Tsumugii24) (Datawhale member, chapter exercise design and proofreading)
+- [Sun Tao - Co-sponsor](https://github.com/fengju0213) (Datawhale member, CAMEL-AI, Chapter 9 content and proofreading)
+- [Jiang Shufan - Co-sponsor](https://github.com/Tsumugii24) (Datawhale member, chapter exercise design and proofreading)
 - [Huang Peilin - Datawhale Prospective Member](https://github.com/HeteroCat) (Agent Development Engineer, Chapter 5 content contributor)
 - [Zeng Xinmin - Agent Engineer](https://github.com/fancyboi999) (Niuke Technology, Chapter 14 case development)
 - [Zhu Xinzhong - Advisory Expert](https://xinzhongzhu.github.io/) (Chief Scientist of Datawhale, Professor at Hangzhou Institute of Artificial Intelligence, Zhejiang Normal University)
@@ -144,6 +144,8 @@ We are an open-source community and welcome any form of contribution!
 - [Zhou Aojie - DW Contributor Team](https://github.com/thunderbolt-fire) (Xi'an Jiaotong University, Extra02 content contribution)
 - [Zhang Chenxu - Individual Developer](https://github.com/Tasselszcx) (Imperial College London, Extra03 Content Contributor)
 - [Huang Honghan - DW Contributor Team](https://github.com/XiaoMa-PM) (Shenzhen University, Extra04 Content Contributor)
+- [Wang Dapeng - Datawhale Member](https://github.com/ditingdapeng) (Senior Developer, Extra08 Content Contributor)
+- [You Yihui - Individual Developer](https://github.com/YYHDBL) (Nanjing University of Information Science and Technology, Extra09 content contribution)
 
 ### Special Thanks
 - Thanks to [@Sm1les](https://github.com/Sm1les) for help and support for this project
@@ -158,11 +160,18 @@ We are an open-source community and welcome any form of contribution!
 ## Star History
 
 <div align='center'>
-    <img src="./docs/images/star-history-2026113.png" alt="Datawhale" width="90%">
+    <img src="./docs/images/star-history-2026324.png" alt="Datawhale" width="90%">
 </div>
 
 <div align="center">
   <p>⭐ If this project helps you, please give us a Star!</p>
+</div>
+
+## Reader Community Group
+
+<div align='center'>
+	<img src="https://raw.githubusercontent.com/datawhalechina/Hello-Agents/main/读者群二维码.png" alt="阅读群额码" width="30%">
+	<p>Scan the QR code to join the reader community group and discuss with more learners</p>
 </div>
 
 ## About Datawhale
