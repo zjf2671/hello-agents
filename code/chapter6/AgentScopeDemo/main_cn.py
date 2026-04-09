@@ -8,10 +8,16 @@ import os
 import random
 from typing import List, Dict, Optional
 
+# Load environment variables from .env file
+from dotenv import load_dotenv
+load_dotenv()
+
 from agentscope.agent import ReActAgent
-from agentscope.model import DashScopeChatModel
+from agentscope.model import OllamaChatModel
+from agentscope.model import OpenAIChatModel
 from agentscope.pipeline import MsgHub, sequential_pipeline, fanout_pipeline
-from agentscope.formatter import DashScopeMultiAgentFormatter
+from agentscope.formatter import OllamaMultiAgentFormatter
+from agentscope.formatter import OpenAIMultiAgentFormatter
 
 from prompt_cn import ChinesePrompts
 from game_roles import GameRoles
@@ -56,26 +62,49 @@ class ThreeKingdomsWerewolfGame:
         """创建具有三国背景的玩家"""
         name = get_chinese_name(character)
         self.roles[name] = role
-        
-        agent = ReActAgent(
-            name=name,
-            sys_prompt=ChinesePrompts.get_role_prompt(role, character),
-            model=DashScopeChatModel(
-                model_name="qwen-max",
-                api_key=os.environ["DASHSCOPE_API_KEY"],
-                enable_thinking=True,
-            ),
-            formatter=DashScopeMultiAgentFormatter(),
-        )
-        
-        # 角色身份确认
-        await agent.observe(
-            await self.moderator.announce(
-                f"【{name}】你在这场三国狼人杀中扮演{GameRoles.get_role_desc(role)}，"
-                f"你的角色是{character}。{GameRoles.get_role_ability(role)}"
+
+        # 验证环境变量
+        model_name = os.getenv("MODEL_ID")
+        api_key = os.getenv("IFLOW_API_KEY")
+        if not model_name or not api_key:
+            raise ValueError("模型配置缺失: 请确认 .env 文件中的 MODEL_ID 和 IFLOW_API_KEY 配置")
+
+        try:
+            agent = ReActAgent(
+                name=name,
+                sys_prompt=ChinesePrompts.get_role_prompt(role, character),
+                model= OpenAIChatModel(
+                    model_name=model_name,
+                    api_key=api_key,
+                    client_args={"base_url": "https://apis.iflow.cn/v1"}
+                ),
+                formatter=OpenAIMultiAgentFormatter(),
             )
-        )
-        
+        except Exception as e:
+            print(f"⚠️ 创建代理 {name} 时出错: {e}")
+            # 创建一个备用代理，可能使用更简单的模型配置
+            agent = ReActAgent(
+                name=name,
+                sys_prompt=ChinesePrompts.get_role_prompt(role, character),
+                model= OpenAIChatModel(
+                    model_name=model_name,
+                    api_key=api_key,
+                    client_args={"base_url": "https://apis.iflow.cn/v1"}
+                ),
+                formatter=OpenAIMultiAgentFormatter(),
+            )
+
+        # 角色身份确认
+        try:
+            await agent.observe(
+                await self.moderator.announce(
+                    f"【{name}】你在这场三国狼人杀中扮演{GameRoles.get_role_desc(role)}，"
+                    f"你的角色是{character}。{GameRoles.get_role_ability(role)}"
+                )
+            )
+        except Exception as e:
+            print(f"⚠️ 角色身份确认时出错: {e}")
+
         self.players[name] = agent
         return agent
     
@@ -118,9 +147,9 @@ class ThreeKingdomsWerewolfGame:
         """狼人阶段"""
         if not self.werewolves:
             return None
-            
+
         await self.moderator.announce(f"🐺 狼人请睁眼，选择今晚要击杀的目标...")
-        
+
         # 狼人讨论
         async with MsgHub(
             self.werewolves,
@@ -132,17 +161,30 @@ class ThreeKingdomsWerewolfGame:
             # 讨论阶段
             for _ in range(MAX_DISCUSSION_ROUND):
                 for wolf in self.werewolves:
-                    await wolf(structured_model=DiscussionModelCN)
-            
+                    try:
+                        await wolf(structured_model=DiscussionModelCN)
+                    except Exception as e:
+                        print(f"⚠️ {wolf.name} 讨论时出错: {e}")
+                        continue
+
             # 投票击杀
             werewolves_hub.set_auto_broadcast(False)
-            kill_votes = await fanout_pipeline(
-                self.werewolves,
-                msg=await self.moderator.announce("请选择击杀目标"),
-                structured_model=WerewolfKillModelCN,
-                enable_gather=False,
-            )
-            
+            try:
+                kill_votes = await fanout_pipeline(
+                    self.werewolves,
+                    msg=await self.moderator.announce("请选择击杀目标"),
+                    structured_model=WerewolfKillModelCN,
+                    enable_gather=False,
+                )
+            except Exception as e:
+                print(f"⚠️ 狼人投票阶段出错: {e}")
+                # 如果投票失败，随机选择目标
+                import random
+                valid_targets = [p.name for p in self.alive_players if p.name not in [w.name for w in self.werewolves]]
+                if valid_targets:
+                    return random.choice(valid_targets)
+                return None
+
             # 统计投票
             votes = {}
             for i, vote_msg in enumerate(kill_votes):
@@ -155,7 +197,7 @@ class ThreeKingdomsWerewolfGame:
                     import random
                     valid_targets = [p.name for p in self.alive_players if p.name not in [w.name for w in self.werewolves]]
                     votes[self.werewolves[i].name] = random.choice(valid_targets) if valid_targets else None
-            
+
             killed_player, _ = majority_vote_cn(votes)
             return killed_player
     
@@ -163,13 +205,17 @@ class ThreeKingdomsWerewolfGame:
         """预言家阶段"""
         if not self.seer:
             return
-            
+
         seer_agent = self.seer[0]
         await self.moderator.announce("🔮 预言家请睁眼，选择要查验的玩家...")
-        
-        check_result = await seer_agent(
-            structured_model=get_seer_model_cn(self.alive_players)
-        )
+
+        try:
+            check_result = await seer_agent(
+                structured_model=get_seer_model_cn(self.alive_players)
+            )
+        except Exception as e:
+            print(f"⚠️ 预言家查验阶段出错: {e}")
+            return
 
         # 检查返回结果是否有效
         if check_result is None or not hasattr(check_result, 'metadata') or check_result.metadata is None:
@@ -182,7 +228,7 @@ class ThreeKingdomsWerewolfGame:
             return
 
         target_role = self.roles.get(target_name, "村民")
-        
+
         # 告知预言家结果
         result_msg = f"查验结果：{target_name}是{'狼人' if target_role == '狼人' else '好人'}"
         await seer_agent.observe(await self.moderator.announce(result_msg))
@@ -191,16 +237,21 @@ class ThreeKingdomsWerewolfGame:
         """女巫阶段"""
         if not self.witch:
             return killed_player, None
-            
+
         witch_agent = self.witch[0]
         await self.moderator.announce("🧙‍♀️ 女巫请睁眼...")
-        
+
         # 告知女巫死亡信息
         death_info = f"今晚{killed_player}被狼人击杀" if killed_player else "今晚平安无事"
         await witch_agent.observe(await self.moderator.announce(death_info))
-        
+
         # 女巫行动
-        witch_action = await witch_agent(structured_model=WitchActionModelCN)
+        try:
+            witch_action = await witch_agent(structured_model=WitchActionModelCN)
+        except Exception as e:
+            print(f"⚠️ 女巫行动阶段出错: {e}")
+            # 在出错时，按默认不行动处理
+            return killed_player, None
 
         saved_player = None
         poisoned_player = None
@@ -220,24 +271,28 @@ class ThreeKingdomsWerewolfGame:
                 if poisoned_player:
                     self.witch_has_poison = False
                     await witch_agent.observe(await self.moderator.announce(f"你使用毒药毒杀了{poisoned_player}"))
-        
+
         # 确定最终死亡玩家
         final_killed = killed_player if not saved_player else None
-        
+
         return final_killed, poisoned_player
     
     async def hunter_phase(self, shot_by_hunter: str):
         """猎人阶段"""
         if not self.hunter:
             return None
-            
+
         hunter_agent = self.hunter[0]
         if hunter_agent.name == shot_by_hunter:
             await self.moderator.announce("🏹 猎人发动技能，可以带走一名玩家...")
-            
-            hunter_action = await hunter_agent(
-                structured_model=get_hunter_model_cn(self.alive_players)
-            )
+
+            try:
+                hunter_action = await hunter_agent(
+                    structured_model=get_hunter_model_cn(self.alive_players)
+                )
+            except Exception as e:
+                print(f"⚠️ 猎人技能使用阶段出错: {e}")
+                return None
 
             # 检查返回结果是否有效
             if hunter_action is None or not hasattr(hunter_action, 'metadata') or hunter_action.metadata is None:
@@ -252,7 +307,7 @@ class ThreeKingdomsWerewolfGame:
                 else:
                     print(f"⚠️ 猎人选择开枪但未指定目标,视为放弃")
                     return None
-        
+
         return None
     
     def update_alive_players(self, dead_players: List[str]):
@@ -271,7 +326,7 @@ class ThreeKingdomsWerewolfGame:
     async def day_phase(self, round_num: int):
         """白天阶段"""
         await self.moderator.day_announcement(round_num)
-        
+
         # 讨论阶段
         async with MsgHub(
             self.alive_players,
@@ -281,17 +336,28 @@ class ThreeKingdomsWerewolfGame:
             ),
         ) as all_hub:
             # 每人发言一轮
-            await sequential_pipeline(self.alive_players)
-            
+            try:
+                await sequential_pipeline(self.alive_players)
+            except Exception as e:
+                print(f"⚠️ 白天讨论阶段出错: {e}")
+
             # 投票阶段
             all_hub.set_auto_broadcast(False)
-            vote_msgs = await fanout_pipeline(
-                self.alive_players,
-                await self.moderator.announce("请投票选择要淘汰的玩家"),
-                structured_model=get_vote_model_cn(self.alive_players),
-                enable_gather=False,
-            )
-            
+            try:
+                vote_msgs = await fanout_pipeline(
+                    self.alive_players,
+                    await self.moderator.announce("请投票选择要淘汰的玩家"),
+                    structured_model=get_vote_model_cn(self.alive_players),
+                    enable_gather=False,
+                )
+            except Exception as e:
+                print(f"⚠️ 白天投票阶段出错: {e}")
+                # 如果投票失败，随机选择一个目标
+                import random
+                if self.alive_players:
+                    return random.choice(self.alive_players).name
+                return None
+
             # 统计投票
             votes = {}
             for i, vote_msg in enumerate(vote_msgs):
@@ -302,10 +368,10 @@ class ThreeKingdomsWerewolfGame:
                     # 如果返回无效,默认弃票
                     print(f"⚠️ {self.alive_players[i].name} 的投票无效,视为弃票")
                     votes[self.alive_players[i].name] = None
-            
+
             voted_out, vote_count = majority_vote_cn(votes)
             await self.moderator.vote_result_announcement(voted_out, vote_count)
-            
+
             return voted_out
     
     async def run_game(self):
@@ -367,12 +433,8 @@ class ThreeKingdomsWerewolfGame:
 
 async def main():
     """主函数"""
-    # 检查环境变量
-    if "DASHSCOPE_API_KEY" not in os.environ:
-        print("❌ 请设置环境变量 DASHSCOPE_API_KEY")
-        return
-    
     print("🎮 欢迎来到三国狼人杀！")
+    print("📌 使用本地Ollama模型运行")
     
     # 创建并运行游戏
     game = ThreeKingdomsWerewolfGame()

@@ -117,8 +117,20 @@
         </div>
 
         <!-- 每日行程:可折叠 -->
-        <a-card title="📅 每日行程" :bordered="false" class="days-card">
-          <a-collapse v-model:activeKey="activeDays" accordion>
+        <a-card :bordered="false" class="days-card">
+          <template #title>
+            <span>📅 每日行程</span>
+          </template>
+          <template #extra>
+            <a-button
+              type="link"
+              size="small"
+              @click.stop="toggleAllDays"
+            >
+              {{ allDaysExpanded ? '🔼 收起所有' : '🔽 展开所有' }}
+            </a-button>
+          </template>
+          <a-collapse v-model:activeKey="activeDays">
             <a-collapse-panel
               v-for="(day, index) in tripPlan.days"
               :key="index"
@@ -324,6 +336,7 @@ const originalPlan = ref<TripPlan | null>(null)
 const attractionPhotos = ref<Record<string, string>>({})
 const activeSection = ref('overview')
 const activeDays = ref<number[]>([0]) // 默认展开第一天
+const allDaysExpanded = ref(false)
 let map: any = null
 
 onMounted(async () => {
@@ -348,6 +361,21 @@ const scrollToSection = ({ key }: { key: string }) => {
   const element = document.getElementById(key)
   if (element) {
     element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+}
+
+// 展开/收起所有行程
+const toggleAllDays = () => {
+  if (!tripPlan.value) return
+
+  if (allDaysExpanded.value) {
+    // 收起所有 - 只保留第一个展开
+    activeDays.value = [0]
+    allDaysExpanded.value = false
+  } else {
+    // 展开所有 - 设置所有天的索引
+    activeDays.value = tripPlan.value.days.map((_, index) => index)
+    allDaysExpanded.value = true
   }
 }
 
@@ -1269,6 +1297,15 @@ const drawRoutes = (AMap: any, attractions: any[]) => {
 /* 每日行程卡片 */
 .days-card {
   margin-top: 20px;
+}
+
+.days-card :deep(.ant-card-head-extra .ant-btn-link) {
+  color: white !important;
+  font-weight: 500;
+}
+
+.days-card :deep(.ant-card-head-extra .ant-btn-link:hover) {
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 .day-header {
