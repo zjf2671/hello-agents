@@ -95,7 +95,7 @@ If you wish to read locally or contribute content, please refer to the learning 
 
 &emsp;&emsp;*<strong>This Hello-Agents PDF tutorial is completely open source and free. To prevent various marketing accounts from adding watermarks and selling it to multi-agent system beginners, we have pre-added a Datawhale open source logo watermark that does not affect reading in the PDF file. Please understand~</strong>*
 
-> *Hello-Agents PDF: https://github.com/datawhalechina/hello-agents/releases/tag/V1.0.0*  
+> *Hello-Agents PDF: https://github.com/datawhalechina/hello-agents/releases/latest/*  
 > *Hello-Agents PDF Domestic Download: https://www.datawhale.cn/learn/summary/239* 
 
 ## 💡 How to Learn
